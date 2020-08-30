@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <th:block th:fragment="content()" th:switch="${page}">
+        <th:block th:case="index" th:insert="pages/index :: content"/>
+        <th:block th:case="login" th:insert="pages/login :: content"/>
+        <th:block th:case="register" th:insert="pages/register :: content"/>
+        <th:block th:case="*" th:insert="pages/not_found :: content"/>
+    </th:block>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <title>Главная</title>
+
+    <th:block th:insert="fragments/common :: headFragment" />
+</head>
+<body>
+    <th:block th:insert="pageRouter :: content"/>
+    <th:block th:insert="fragments/common :: scriptsFragment" />
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <th:block th:fragment="content">
+        <h1>Регистрация</h1>
+        <p th:text="${userForm}">ss</p>
+        <form action="#" th:action="@{/register}"
+              th:object="${userForm}"
+              method="post"
+              class="">
+            <div class="form-group">
+                <label th:for="${#ids.next('email')}">Ваш email</label>
+                <input class="form-control"
+                       type="email"
+                       th:field="*{email}"
+                       required>
+                <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Incorrect email</p>
+            </div>
+            <div class="form-group">
+                <label th:for="${#strings.toLowerCase(password)}">Пароль</label>
+                <input class="form-control"
+                       th:id="${#strings.toLowerCase(password)}"
+                       type="password"
+                       th:field="*{password}"
+                       required>
+                <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Incorrect password</p>
+            </div>
+            <div class="form-group">
+                <label th:for="${#strings.toLowerCase(matchPassword)}">Повторите пароль</label>
+                <input class="form-control"
+                       th:id="${#strings.toLowerCase(matchPassword)}"
+                       type="password"
+                       th:field="*{matchPassword}"
+                       required>
+                <p th:if="${#fields.hasErrors('matchPassword')}" th:errors="*{matchPassword}">Incorrect password match</p>
+            </div>
+            <div class="form-group">
+                <input class="form-control"
+                       type="submit" th:value="Отправить">
+            </div>
+        </form>
+    </th:block>
+</body>
+</html>

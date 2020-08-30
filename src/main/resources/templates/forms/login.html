@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <th:block th:fragment="loginForm(action, formObject)">
+        <form action="#" th:action="@{${action}}" th:object="${formObject}" method="post">
+            <th:block th:insert="/fragments/from-inputs :: input('Имя пользователя:', 'text', formObject, false, '')"/>
+        </form>
+    </th:block>
+</body>
+</html>

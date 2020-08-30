@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <th:block th:fragment="input(label, item)"
+        th:with="type=${type} ? ${type}: 'text', required=${required}?${required}:false">
+        <div class="form-group">
+            <label th:for="${#strings.toLowerCase(item)}"
+                   th:text="${label}">Input field</label>
+            <input class="form-control"
+                   th:id="${#strings.toLowerCase(item)}"
+                   th:type="${type}"
+                   th:field="*{item}"
+                   th:required="${required}">
+
+        </div>
+    </th:block>
+</body>
+</html>
